@@ -1,2 +1,17 @@
-<p>first works!</p>
+<p [hidden]="isHidden">{{name}} works!</p>
+
+<!-- ki tclicki 3la el div
+  bara 3ayet el showHide
+-->
+<div (click)="showHide()">first :S</div>
+
+<input #myInput (change)="changeMessage(myInput.value)" type="text" class="form-control">
+
+<p>Le contenu de l'input est : {{message}} </p>
+
+<!-- Balises
+  attributs => Etat
+  evenemts => Comportement
+-->
+
 <app-second/>
