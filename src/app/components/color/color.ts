@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-color',
@@ -14,14 +14,14 @@ export class Color {
   /**
    * var: la couleur du bg
    */
-  color = this.defaultColor;
+  color = signal(this.defaultColor);
 
   changeColor(newColor: HTMLInputElement) {
-    this.color = newColor.value;
+    this.color.set(newColor.value);
     newColor.value = '';
   }
 
   reset() {
-    this.color = this.defaultColor;
+    this.color.set(this.defaultColor);
   }
 }
