@@ -1,12 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { First } from "./components/first/first";
-import { Second } from "./components/second/second";
-import { Color } from "./components/color/color";
-import { Two } from "./components/two/two";
+
+import { Card } from './components/card/card';
 
 @Component({
   selector: 'app-root',
-  imports: [First, Second, Color, Two],
+  imports: [Card],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
