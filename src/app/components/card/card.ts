@@ -13,4 +13,8 @@ export class Card {
   firstname = 'aymen';
   job = 'teacher';
   path = 'rotating_card_profile3.png';
+
+  logName() {
+    console.log(this.name);
+  }
 }
