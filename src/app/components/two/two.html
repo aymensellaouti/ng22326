@@ -1,0 +1,5 @@
+<p (click)="twoBinding = 'newValue'">two works : {{twoBinding}}</p>
+<!-- avec ngModel on a le input et
+  l'attribut twoBinding ne font plus qu'un
+-->
+<input type="text" [(ngModel)]="twoBinding">
