@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 
-import { Pere } from './compoInteractions/pere/pere';
+import { CvPage } from "./cv/cv-page/cv-page";
 
 @Component({
   selector: 'app-root',
-  imports: [Pere],
+  imports: [CvPage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
