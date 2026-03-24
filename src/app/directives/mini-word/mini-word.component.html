@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col"><input [(ngModel)]="color" type="color" class="form-control" /></div>
   <div class="col"><input [(ngModel)]="size" type="number" class="form-control" /></div>
-  <div class="col">
+  <div class="col" appRainbow>
     <select [(ngModel)]="font" class="form-control">
       <option value="garamond">garamond</option>
       <option value="latin">latin</option>
@@ -18,5 +18,7 @@
   </div>
 </div>
 
-<p appHighlight>cc</p>
+<p appRainbow appHighlight>cc</p>
 <p appHighlightNew [in]="'green'" [out]="'brown'">cc</p>
+
+<input type="text" appRainbow>
