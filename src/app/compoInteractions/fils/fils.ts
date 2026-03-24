@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-fils',
@@ -13,5 +13,11 @@ export class Fils {
      return "Le message de papa est " + value;
     }
   });
+
+  sendMessageToDad = output<string>();
+
+  onSendMessage() {
+    this.sendMessageToDad.emit('Ok ama nakhou el ba9i :D');
+  }
 }
 

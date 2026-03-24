@@ -8,5 +8,7 @@ import { Fils } from "../fils/fils";
   styleUrl: './pere.css',
 })
 export class Pere {
-
+  processMessage(message: string) {
+    alert(message)
+  }
 }
