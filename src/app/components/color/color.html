@@ -1,7 +1,15 @@
+<!-- On a bindé l'attribut html style.backgroundColor
+  avec l'attribut TS color
+  Quand color change => le backgoundColor
+  Change
+-->
 <p
   [style.backgroundColor]="color()"
->color works!</p>
+>color : {{color()}}</p>
 
+<!-- Quand le input change
+ appelle la méthode changeColor
+-->
 <input
   #inputColor
   (change)="changeColor(inputColor)" type="text" class="form-control">
