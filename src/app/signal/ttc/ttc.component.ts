@@ -1,11 +1,13 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Btc2usdPipe } from '../../pipes/usd2btc-pipe';
 
 @Component({
   selector: 'app-ttc',
   templateUrl: './ttc.component.html',
   styleUrl: './ttc.component.css',
-  imports: [FormsModule]
+  imports: [FormsModule, CurrencyPipe, Btc2usdPipe]
 })
 export class TtcComponent {
   // State

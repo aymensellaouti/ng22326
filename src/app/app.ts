@@ -4,10 +4,11 @@ import { CvPage } from "./cv/cv-page/cv-page";
 import { NgStyleComponet } from "./directives/ng-style/ng-style";
 import { CvItem } from "./cv/cv-item/cv-item";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
+import { TtcComponent } from "./signal/ttc/ttc.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CvPage, NgStyleComponet, CvItem, MiniWordComponent],
+  imports: [CvPage, NgStyleComponet, CvItem, MiniWordComponent, TtcComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
