@@ -6,6 +6,7 @@ import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { Color } from './components/color/color';
 import { Second } from './components/second/second';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
+import { NF404 } from './components/nf404/nf404';
 
 // /cv
 export const routes: Routes = [
@@ -16,4 +17,5 @@ export const routes: Routes = [
   { path: 'word', component: MiniWordComponent},
   { path: 'color', component: Color},
   { path: 'hello/:name', component: Second},
+  { path: '**', component: NF404},
 ];
