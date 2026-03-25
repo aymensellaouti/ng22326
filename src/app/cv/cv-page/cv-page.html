@@ -5,10 +5,10 @@
   <div class="col">
     <app-cv-list
       [cvs]="cvs()"
-      (forwardCv)="selectedCv.set($event)"
     />
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv()"/>
   </div>
 </div>
+<app-embauche/>

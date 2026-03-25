@@ -12,5 +12,5 @@ export class CvList {
   // state
   cvs = input<Cv[]>();
 
-  forwardCv = output<Cv>();
+  //forwardCv = output<Cv>();
 }
