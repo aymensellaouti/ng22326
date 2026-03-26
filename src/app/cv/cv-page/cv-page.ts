@@ -19,7 +19,7 @@ export class CvPage {
   /**
    * var la liste des cvs à afficher
    */
-  cvs = this.cvService.getCvs();
+  cvs = signal<Cv[]>([]);
   /**
    * var le cv séléctionné
    */
@@ -29,6 +29,17 @@ export class CvPage {
   toastr = inject(ToastrService);
   constructor() {
     this.loggerService.log('cc je suis le cvComponent');
-    this.toastr.info('Bienvenu dans notre CvTech !')
+    this.toastr.info('Bienvenu dans notre CvTech !');
+
+    this.cvService.getCvsFromApi().subscribe({
+      next:(cvs) => {
+        this.cvs.set(cvs);
+      },
+      error:(error) => {
+        this.cvs.set(this.cvService.getCvs()());
+        this.toastr.error(`Les données sont fictives merci de contacter l'admin`)
+      },
+      complete:() => {},
+    })
   }
 }

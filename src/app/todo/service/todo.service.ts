@@ -1,9 +1,9 @@
 import { inject, Injectable, Signal, signal } from "@angular/core";
 import { Todo } from "../model/todo";
 import { LoggerService } from "../../services/logger";
-import { HttpClient } from "@angular/common/http";
 import { APP_API } from "../../config/app-api.config";
 import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 export interface TodoApi {
   userId: number

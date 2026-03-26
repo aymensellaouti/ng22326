@@ -22,15 +22,29 @@ export class DetailsCvComponent {
     const id = this.acr.snapshot.params['id'];
     // 2 appeler le service pour récupérer le cv
     // 21 Si existe j'affiche
-    this.cv.set(this.cvService.findCvById(id));
-    // 22 sinon redirige
-    if (!this.cv()) this.router.navigate([APP_ROUTES.cv]);
+    //this.cv.set(this.cvService.findCvById(id));
+      this.cvService.getCvByIdFromApi(id).subscribe({
+        next: (cv) => {
+          this.cv.set(cv);
+        },
+        error: (error) => {
+          // 22 sinon redirige
+          this.router.navigate([APP_ROUTES.cv]);
+        }
+      });
+
   }
   deleteCv() {
     const cv = this.cv();
     if (cv) {
-      this.cvService.deleteCv(cv);
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvFromApi(cv.id).subscribe({
+        next: () => {
+          this.router.navigate([APP_ROUTES.cv]);
+        },
+        error: (e) => {
+          console.log(e);
+        }
+      })
     }
   }
 }
