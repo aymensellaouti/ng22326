@@ -11,6 +11,14 @@
         </li>
       }
     </ol>
+    <ol class="list-group">
+      @for (todo of todoApis(); track todo.id) {
+        <li
+          class="list-group-item list-group-item-primary">
+          {{todo.title}} By : {{todo.userId}}
+        </li>
+      }
+    </ol>
   </div>
   <div class="col">
     name:

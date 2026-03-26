@@ -1,6 +1,17 @@
 import { inject, Injectable, Signal, signal } from "@angular/core";
 import { Todo } from "../model/todo";
 import { LoggerService } from "../../services/logger";
+import { HttpClient } from "@angular/common/http";
+import { APP_API } from "../../config/app-api.config";
+import { Observable } from "rxjs";
+
+export interface TodoApi {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +19,7 @@ import { LoggerService } from "../../services/logger";
 export class TodoService {
   #todos = signal<Todo[]>([]);
   loggerService = inject(LoggerService);
+  http = inject(HttpClient);
   /**
    * elle retourne la liste des todos
    *
@@ -17,6 +29,10 @@ export class TodoService {
     return this.#todos.asReadonly();
   }
 
+  getTodosFromApi(): Observable<TodoApi[]> {
+    return this.http.get<TodoApi[]>(APP_API.todo);
+  }
+
   /**
    *Elle permet d'ajouter un todo
    *
@@ -24,10 +40,7 @@ export class TodoService {
    *
    */
   addTodo(todo: Todo): void {
-    this.#todos.update(todos => [
-      ...todos,
-      todo
-    ]);
+    this.#todos.update((todos) => [...todos, todo]);
   }
 
   /**
@@ -37,9 +50,7 @@ export class TodoService {
    * @returns boolean
    */
   deleteTodo(todo: Todo) {
-    this.#todos.update((todos) => todos.filter(
-      actualTodo => actualTodo != todo
-    ));
+    this.#todos.update((todos) => todos.filter((actualTodo) => actualTodo != todo));
   }
 
   /**
