@@ -40,14 +40,9 @@ export class CvService {
   }
 
   deleteCvFromApi(id: number): Observable<{count: number}> {
-    const headers = new HttpHeaders().set(
-      APP_CONST.authHeader,
-      localStorage.getItem(APP_CONST.authToken) ?? ''
-    );
+
     //const params = new HttpHeaders().set('access_token', 'token');
-    return this.httpClient.delete<{ count: number }>(APP_API.cv + id, {
-      headers
-    });
+    return this.httpClient.delete<{ count: number }>(APP_API.cv + id);
   }
 
   /**
