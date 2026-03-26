@@ -8,10 +8,11 @@ import { TtcComponent } from "./signal/ttc/ttc.component";
 import { TodoComponent } from "./todo/todo/todo.component";
 import { RouterOutlet } from "@angular/router";
 import { Navbar } from "./components/navbar/navbar";
+import { TestForm } from "./form/test-form/test-form";
 
 @Component({
   selector: 'app-root',
-  imports: [CvPage, NgStyleComponet, CvItem, MiniWordComponent, TtcComponent, TodoComponent, RouterOutlet, Navbar],
+  imports: [CvPage, NgStyleComponet, CvItem, MiniWordComponent, TtcComponent, TodoComponent, RouterOutlet, Navbar, TestForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,9 @@
+<form #myForm="ngForm">
+  Firstname <input required type="text" class="form-control" ngModel name="firstname">
+  Age <input required type="text" class="form-control" ngModel name="age">
+  <button
+    (click)="processForm(myForm)"
+    class="btn btn-success">
+    submit
+  </button>
+</form>
