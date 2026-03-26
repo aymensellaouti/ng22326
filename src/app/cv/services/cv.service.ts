@@ -3,6 +3,7 @@ import { Cv } from '../model/cv';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP_API } from '../../config/app-api.config';
 import { Observable } from 'rxjs';
+import { APP_CONST } from '../../config/app-constantes.config';
 
 
 
@@ -39,7 +40,10 @@ export class CvService {
   }
 
   deleteCvFromApi(id: number): Observable<{count: number}> {
-    const headers = new HttpHeaders().set('Authentication', 'token');
+    const headers = new HttpHeaders().set(
+      APP_CONST.authHeader,
+      localStorage.getItem(APP_CONST.authToken) ?? ''
+    );
     //const params = new HttpHeaders().set('access_token', 'token');
     return this.httpClient.delete<{ count: number }>(APP_API.cv + id, {
       headers

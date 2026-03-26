@@ -15,7 +15,11 @@ export class AuthService {
     return !! localStorage.getItem(APP_CONST.authToken);
   }
   login(credentials: Credentials): Observable<LoginResponseDto> {
-    return this.http.post<LoginResponseDto>(APP_API.login, credentials);
+    return this.http.post<LoginResponseDto>(APP_API.login, credentials).pipe(
+      tap((response) => {
+          localStorage.setItem(APP_CONST.authToken, response.id);
+      })
+    );
   }
 
   logout() {

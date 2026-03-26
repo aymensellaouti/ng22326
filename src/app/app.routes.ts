@@ -9,12 +9,13 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404 } from './components/nf404/nf404';
 import { Login } from './auth/login/login';
 import { AddCv } from './cv/add-cv/add-cv';
+import { authGuard } from './auth/guards/auth-guard';
 
 // /cv
 export const routes: Routes = [
   { path: '', component: First},
   { path: 'cv', component: CvPage},
-  { path: 'cv/add', component: AddCv},
+  { path: 'cv/add', component: AddCv, canActivate: [authGuard]},
   { path: 'cv/:id', component: DetailsCvComponent},
   { path: 'todo', component: TodoComponent},
   { path: 'word', component: MiniWordComponent},
